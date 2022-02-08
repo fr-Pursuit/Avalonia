@@ -1,3 +1,4 @@
+using System;
 using Avalonia.Controls;
 using Avalonia.Platform;
 
@@ -35,9 +36,11 @@ namespace Avalonia
             return builder;
         }
 
-        static void LoadAvaloniaNative<TAppBuilder>(TAppBuilder builder)
-            where TAppBuilder : AppBuilderBase<TAppBuilder>, new()
-             => builder.UseAvaloniaNative();
+        static void LoadAvaloniaNative<TAppBuilder>(TAppBuilder builder) where TAppBuilder : AppBuilderBase<TAppBuilder>, new()
+        {
+            throw new PlatformNotSupportedException("MacOS support has been dropped in this branch of Avalonia");
+        }
+        
         static void LoadWin32<TAppBuilder>(TAppBuilder builder)
             where TAppBuilder : AppBuilderBase<TAppBuilder>, new()
              => builder.UseWin32();
